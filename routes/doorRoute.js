@@ -7,7 +7,7 @@ router.get('/:name/on', ( req, res ) => {
     db
     .get('devices')
     .find({ id : "LOC1", name : req.params.name })
-    .assign({ on : true })
+    .assign({ locked : true })
     .value();
 
     update();
@@ -20,7 +20,7 @@ router.get('/:name/off', ( req, res ) => {
     db
     .get('devices')
     .find({ id : "LOC1", name : req.params.name })
-    .assign({ on : false })
+    .assign({ locked : false })
     .value();
 
     update();
